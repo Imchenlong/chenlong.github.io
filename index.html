@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -361,7 +362,13 @@
   var A;
 });
   </script>
-  <script>
+<script src="https://unpkg.com/vconsole@latest/dist/vconsole.min.js"></script>
+<script>
+  // VConsole will be exported to `window.VConsole` by default.
+  var vConsole = new window.VConsole();
+</script>
+</head>
+<script>
     function handleClick() {
       console.log('haha')
       jd.miniProgram.closeMiniProgram()
@@ -369,9 +376,20 @@
 
     function handleLoginClick(){
       console.log('ceshi');
+
+      document.getElementById('info').innerHTML = 'ceshi'
       jd.login({
         success: function (data) {
-          alert('success', data);
+          console.log('!!success',data)
+            document.getElementById('info').innerHTML = JSON.stringify(data)
+       //   alert('success', data);
+        },complete:function(data){
+          console.log('!!complete',data)
+          document.getElementById('info').innerHTML = JSON.stringify(data)
+        },
+        fail:function(data){
+          console.log('!!fail',data)
+          document.getElementById('info').innerHTML = JSON.stringify(data)
         }
       })
     }
@@ -384,11 +402,10 @@
       button.addEventListener('click', handleLoginClick);
     };
   </script>
-</head>
-
 <body>
   <button id="myButton"> 退出小程序 </button>
   <button id="loginBtn"> 登录小程序 </button>
+  <div id="info"> aa </div>
 </body>
 
 </html>
