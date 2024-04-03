@@ -260,6 +260,9 @@
         }),
           i("checkJsApi", { jsApiList: r(e.jsApiList) }, e);
       },
+      login: function (e) {
+          i("login", {}, e);
+      },
       closeWindow: function (e) {
         i("closeWindow", {}, (e = e || {}));
       },
@@ -364,16 +367,28 @@
       jd.miniProgram.closeMiniProgram()
     }
 
+    function handleLoginClick(){
+      console.log('ceshi');
+      jd.login({
+        success: function (data) {
+          alert('success', data);
+        }
+      })
+    }
+
     // 确保DOM完全加载后再绑定事件
     window.onload = function () {
       var button = document.getElementById('myButton');
       button.addEventListener('click', handleClick);
+      var button = document.getElementById('loginBtn');
+      button.addEventListener('click', handleLoginClick);
     };
   </script>
 </head>
 
 <body>
   <button id="myButton"> 退出小程序 </button>
+  <button id="loginBtn"> 登录小程序 </button>
 </body>
 
 </html>
