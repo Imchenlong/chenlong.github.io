@@ -394,6 +394,21 @@
       })
     }
 
+    function toUrlBtn(){
+      console.log('haha')
+      jd.navigateToNative({
+      dataParam: {
+          url: 'openapp.jdmobile://virtual',
+          params: {
+              category:"jump",
+              url: "https://m.jd.com/",
+              des:"m",
+              param:{} // 为空时也要传此字段
+          }
+      }
+});
+    }
+
     // 确保DOM完全加载后再绑定事件
     window.onload = function () {
       var button = document.getElementById('myButton');
@@ -405,7 +420,8 @@
 <body>
   <button id="myButton"> 退出小程序 </button>
   <button id="loginBtn"> 登录小程序 </button>
-  <div id="info"> aa </div>
+  <button id="toUrlBtn"> 跳转 </button>
+  <div id="info"> aaaa </div>
 </body>
 
 </html>
