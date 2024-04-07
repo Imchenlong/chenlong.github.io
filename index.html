@@ -411,10 +411,13 @@
 
     // 确保DOM完全加载后再绑定事件
     window.onload = function () {
-      var button = document.getElementById('myButton');
-      button.addEventListener('click', handleClick);
-      var button = document.getElementById('loginBtn');
-      button.addEventListener('click', handleLoginClick);
+      var button1 = document.getElementById('myButton');
+      button1.addEventListener('click', handleClick);
+      var button2 = document.getElementById('loginBtn');
+      button2.addEventListener('click', handleLoginClick);
+      var button3 = document.getElementById('toUrlBtn');
+      button3.addEventListener('click', toUrlBtn);
+      
     };
   </script>
 <body>
